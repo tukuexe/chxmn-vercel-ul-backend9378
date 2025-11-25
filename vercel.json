@@ -1,0 +1,21 @@
+{
+  "functions": {
+    "api/index.js": {
+      "maxDuration": 10,
+      "runtime": "edge"
+    }
+  },
+  "crons": [
+    { "path": "/api/ping", "schedule": "*/5 * * * *" }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,POST,OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type,Authorization" }
+      ]
+    }
+  ]
+}
